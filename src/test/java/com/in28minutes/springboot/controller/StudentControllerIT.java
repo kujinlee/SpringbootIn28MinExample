@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 
+import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,7 +54,12 @@ public class StudentControllerIT {
 
 		String expected = "{id:Course1,name:Spring,description:10 Steps}";
 
-		JSONAssert.assertEquals(expected, response.getBody(), false);
+		try {
+			JSONAssert.assertEquals(expected, response.getBody(), false);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test

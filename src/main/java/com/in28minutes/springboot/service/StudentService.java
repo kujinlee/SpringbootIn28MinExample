@@ -15,6 +15,7 @@ import com.in28minutes.springboot.model.Student;
 public class StudentService {
 
 	private static List<Student> students = new ArrayList<>();
+	private static List<Course> courses = new ArrayList<>();
 
 	static {
 		//Initialize Data
@@ -31,6 +32,10 @@ public class StudentService {
 				"Most popular maven course on internet!", Arrays.asList(
 						"Pom.xml", "Build Life Cycle", "Parent POM",
 						"Importing into Eclipse"));
+		courses.add(course1);
+		courses.add(course2);
+		courses.add(course3);
+		courses.add(course4);
 
 		Student ranga = new Student("Student1", "Ranga Karanam",
 				"Hiker, Programmer and Architect", new ArrayList<>(Arrays
@@ -47,7 +52,11 @@ public class StudentService {
 	public List<Student> retrieveAllStudents() {
 		return students;
 	}
-
+	
+	public List<Course> retrieveAllCourses() {
+		return courses;
+	}
+	
 	public Student retrieveStudent(String studentId) {
 		for (Student student : students) {
 			if (student.getId().equals(studentId)) {

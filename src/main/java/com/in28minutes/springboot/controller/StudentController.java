@@ -27,9 +27,14 @@ public class StudentController {
 		return studentService.retrieveCourses(studentId);
 	}
 	
-	@GetMapping("/students/")
-	public List<Student> retrieveAllStudent() {
+	@GetMapping("/students")
+	public List<Student> retrieveAllStudents() {
 		return studentService.retrieveAllStudents();
+	}
+	
+	@GetMapping("/courses")
+	public List<Course> retrieveAllCourses() {
+		return studentService.retrieveAllCourses();
 	}
 
 	@PostMapping("/students/{studentId}/courses")
